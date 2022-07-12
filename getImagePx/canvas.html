@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <style>
+    #canvas{
+     border:2px solid rgb(78, 77, 77);
+     display: block;
+     margin: 0 auto;
+   }
+ </style>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400">你的浏览器版本过低，请升级或者使用chrome打开</canvas>
+  <script>
+    //获取画布节点
+     let canvas =  document.querySelector('#canvas') ;
+     //获取画布的上下文
+     let ctx = canvas.getContext('2d');
+      let img = new Image();
+      img.src="./小怪兽.png";
+      img.onload = function(){
+        ctx.drawImage(img,0,0);
+        let imgWidth = img.width;
+        let imgHeight= img.height;
+        let imgData = ctx.getImageData(0,0,imgWidth,imgHeight).data;
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0,0,imgWidth,imgHeight);  
+        let grap = 5;
+        for (let h = 0; h < imgHeight; h+=grap) {
+          for (let w = 0; w < imgWidth; w+=grap) {
+            let position = (imgWidth*h + w) * 4;
+            let r = imgData[position];
+            let g = imgData[position+ 1];
+            let b = imgData[position + 2];
+            let a = imgData[position + 3];
+            if(r+g+b+a !== 0 ){
+                ctx.fillStyle = "#000";
+                ctx.fillRect(w ,h,4,4)
+            }
+         }
+        }
+      }
+    
+  
+      // ctx.stroke();
+  </script>
+</body>
+</html
