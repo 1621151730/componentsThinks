@@ -8,7 +8,7 @@ body{
 p{
   margin: 0;
   padding: 20px;
-  background-color: rgb(241, 128, 252);
+  background-color: rgb(192, 142, 175);
   text-align: center;
   font-size: 16px;
 }
@@ -27,7 +27,6 @@ p{
     position: absolute;
     left: 0;
     right: 0;
-    width: 100%;
     height: 50px;
     overflow: hidden;
     color: #969799;
@@ -57,13 +56,13 @@ p{
 }
 @keyframes turnPhoto {
   0%{
-    transform: rotate(0deg) scale(1);
+    transform: rotate(0deg);
   }
   50%{
-    transform: rotate(180deg) scale(1);
+    transform: rotate(180deg);
   }
   100%{
-    transform: rotate(360deg) scale(1);
+    transform: rotate(360deg);
   }
 }
 .loading-info .loading-text{
@@ -85,7 +84,7 @@ p{
     content: "...\A..\A.";
     display: block;
     white-space: pre-wrap;
-    animation: dotAnimation 1.5s infinite step-start;
+    animation: dotAnimation 1.5s infinite step-start both;
 }
 @keyframes dotAnimation {
   33%{
@@ -96,7 +95,6 @@ p{
   }
 }
 .w-list{
-  /* position: relative; */
   background-color: #ebeaea;
 }
 .w-list .list-loading{
@@ -112,7 +110,7 @@ p{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(84, 151, 240);
+  background-color: rgb(97, 100, 159);
   font-size: 18px;
   height: 200px;
   margin-bottom: 20px;
