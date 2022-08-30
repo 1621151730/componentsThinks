@@ -1,0 +1,53 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+body{
+  margin:125px 271px 125px;
+}
+.input-switch{
+  /* 不让其input占位 */
+  display: none; 
+}
+
+.label-switch{
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+  width: 80px;
+  border-radius: 50px;
+  border: 2px solid rgb(185, 184, 184);
+  background-color: rgb(185, 184, 184);
+}
+/* input-switch:checked  就是选中的伪类*/
+.input-switch:checked + .label-switch{
+  background-color: rgb(7, 114, 52);
+  border: 2px solid rgb(7, 114, 52);
+}
+.label-switch .ball{
+  height: 36px;
+  width: 36px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  animation: offSwitch 0.25s ease-in forwards;
+}
+.input-switch:checked + .label-switch .ball{
+  animation: onSwitch 0.25s ease-in forwards;
+}
+@keyframes onSwitch {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+}
+@keyframes offSwitch {
+  0% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
